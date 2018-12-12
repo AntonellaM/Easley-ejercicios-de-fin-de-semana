@@ -62,7 +62,7 @@ En el archivo **css/main.css** habrá que añadir estas clases:
 ### 3/ En el espacio nadie puede oir tus fetchs
 Todo el mundo sabe que en el espacio la comunicación es remota, así que vamos a pedir las noticias a casa. Para ello nos han dado la siguiente url:
 ```
-https://raw.githubusercontent.com/Adalab/dorcas-repaso-sprint2/master/data/news.json
+https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json
 ```
 Tendremos que comentar el código anterior y volver a pintar nuestras noticias, pero esta vez las recibidas tras hacer la petición a nuestra API de noticias de casa.
 
@@ -85,7 +85,7 @@ Podéis usar estos estilos:
 ### 5/ Todo es color entre tú y tus arrays...
 Vamos a cambiar de tercio y sacar a la diseñadora que llevamos dentro: vamos a pintar paletas, a lo loco.
 
-Esta vez tenemos una URL **`https://raw.githubusercontent.com/Adalab/dorcas-repaso-sprint2/master/data/palette.json`** que nos devuelve datos de una paleta y tenemos que pintarla como en el ejemplo:
+Esta vez tenemos una URL **`https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json`** que nos devuelve datos de una paleta y tenemos que pintarla como en el ejemplo:
 
 ![Propuesta de diseño](images/paleta.png)
 
@@ -98,4 +98,4 @@ Pero hay uno requisitos:
 De esta manera aplicaremos el color a cada cuadrado.
 
 ### 6/ Episodio VI: El retorno de las paletas
-Ahora que sabemos pintar paletas vamos a ver las paletas de las mejores naves de ciencia ficción, en esta URL **`https://raw.githubusercontent.com/Adalab/dorcas-repaso-sprint2/master/data/palettes.json`** tenemos a las mejores: ¡¡píntalas todas!!
+Ahora que sabemos pintar paletas vamos a ver las paletas de las mejores naves de ciencia ficción, en esta URL **`https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json`** tenemos a las mejores: ¡¡¡Píntalas todas!!
