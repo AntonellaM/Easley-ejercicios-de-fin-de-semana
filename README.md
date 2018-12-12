@@ -87,7 +87,7 @@ Vamos a cambiar de tercio y sacar a la diseñadora que llevamos dentro: vamos a 
 
 Esta vez tenemos una URL **`https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json`** que nos devuelve datos de una paleta y tenemos que pintarla como en el ejemplo:
 
-![Propuesta de diseño](images/paleta.png)
+![Propuesta de diseño](assets/images/paleta.png)
 
 Pero hay uno requisitos:
 * Podemos crear los estilos que estimemos oportunos pero el color de la paleta lo añadiremos con un atributo `style=""` en cada cuadrado, es decir, si cada cuadrado fuese un **div** podría quedar algo así:
