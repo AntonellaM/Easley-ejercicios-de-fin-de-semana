@@ -26,19 +26,9 @@ const data = [
   }
 ];
 
-
 for (let i = 0; i < data.length; i++) {
-  listEl.classList.add('news__item');
-
-  if(listEl===data[i].title) {
-    listEl.classList.add('news__title');
-  } else {
-    listEl.classList.add('news__image');
-  }
-
-    const titleEl = data[i].title;
-  listEl.innerHTML += `<h2>${titleEl}</h2>`;
-    const imageEl = data[i].image;
-  listEl.innerHTML += `<img src="${imageEl}" alt= "${titleEl}">`;
+  const titleEl = data[i].title;
+  const imageEl = data[i].image;
+  listEl.innerHTML += `<li class="new__item"> <h2 class="new__title">${titleEl}</h2> <img class="new__image" src="${imageEl}" alt= "${titleEl}"></li>`;
 
 }
