@@ -1,5 +1,8 @@
 'use strict';
 
+const listEl = document.querySelector('.news');
+
+
 const data = [
   {
     title: 'Asteroids 101',
@@ -22,3 +25,20 @@ const data = [
     image: 'https://via.placeholder.com/200x100'
   }
 ];
+
+
+for (let i = 0; i < data.length; i++) {
+  listEl.classList.add('news__item');
+
+  if(listEl===data[i].title) {
+    listEl.classList.add('news__title');
+  } else {
+    listEl.classList.add('news__image');
+  }
+
+    const titleEl = data[i].title;
+  listEl.innerHTML += `<h2>${titleEl}</h2>`;
+    const imageEl = data[i].image;
+  listEl.innerHTML += `<img src="${imageEl}" alt= "${titleEl}">`;
+
+}
