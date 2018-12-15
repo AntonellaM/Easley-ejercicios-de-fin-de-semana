@@ -23,6 +23,8 @@ const data = [
   }
 ];
 
+/* Ejercicio 1 */
+
 const newsContainer = document.querySelector('.news');
 
 for (let i = 0; i < data.length; i++){
@@ -35,4 +37,3 @@ for (let i = 0; i < data.length; i++){
 </li>`;
   newsContainer.innerHTML += content;
 }
-
