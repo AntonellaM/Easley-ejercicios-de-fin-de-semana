@@ -5,26 +5,24 @@
 
 const div = document.querySelector('.palettes');
 
-fetch('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json')
+fetch('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json')
 .then(function(response){
   return response.json();
 })
 .then(function(data){
-  const palettes = data.palettes;
+  const palette = data.palettes;
+  const name = palette[0].name;
+  const colors = palette[0].colors;
 
   ///generamos los cuadrados base donde se pintarán las paletas con sus nombres correspondientes
-  for(let i=0; i<palettes.length; i++){
+  div.innerHTML += `<div class="palette-name">${name}</div><div class="palette ${name}"></div>`;
 
-    div.innerHTML += `<div class="palette-name">${palettes[i].name}</div><div class="palette ${palettes[i].name}"></div>`;
-    let colors = palettes[i].colors;
-    let divPalette = div.querySelectorAll('.palette');
-    // me gustaría que lo siguiente funcionase con: let divPalette = div.querySelector(`.${palettes[i].name}`);
-    //pero no funciona :(, así que dejo el querySelectorAll
+  let divPalette = div.querySelector('.palette');
 
-    //generamos los colors-items!
-    for(let j=0; j<colors.length; j++){
-      divPalette[i].innerHTML += `<div class="color__item" style="background-color:#${colors[j]}"></div>`;
-    }
+  //generamos los colors-items!
+  for(let i=0; i<colors.length; i++){
+
+    divPalette.innerHTML += `<div class="color__item" style="background-color:#${colors[i]}"></div>`;
 
   }
 })

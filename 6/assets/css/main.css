@@ -1,0 +1,27 @@
+body {
+  background: #fffdfa;
+  color: #332100;
+  margin: 0;
+}
+
+.palettes{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-style: italic;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.palette{
+  margin-top: 5px;
+  margin-bottom: 20px;
+  height: 50px;
+  display: flex;
+}
+
+.color__item{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  box-shadow: 1px 2px 2px grey;
+}
