@@ -19,14 +19,14 @@ function getNews() {
       function tryElement(e) {
         if (e.currentTarget = '.news__item--no-image-visible') {
           e.currentTarget.classList.toggle('news__item--no-image-visible');
-        } 
+        }
       }
-        for (let i = 0; i < allNews.length; i++) {
+      for (let i = 0; i < allNews.length; i++) {
         allNews[i].addEventListener('click', tryElement);
       }
-     
+
     });
-   
+
 }
 
 getNews();
