@@ -80,8 +80,32 @@ fetch('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-sema
 
       const images = newsResults[i].image;
 
-      ulContainer.innerHTML += `<li class="news__item"><h2 class="news__title">${titles}</h2>
+      ulContainer.innerHTML += `<li class="news__item news__item--no-image-visible"><h2 class="news__title">${titles}</h2>
 
       <img src="${images}" alt="${titles}" class="news__image"></li>`;
+    }
+
+    const liElement = document.querySelectorAll('.news__item ','.news__item--no-image-visible');
+
+    for(let i = 0; i<liElement.length; i++) {
+
+      liElement[i].addEventListener('click', function handleclick(e) {
+
+        const guilty = e.currentTarget;
+
+        if(liElement[i].classList.contains('news__item--no-image-visible') === true) {
+
+          liElement[i].classList.remove('news__item--no-image-visible');
+
+          console.log(liElement[i]);
+
+  
+        } else if(liElement[i].classList.contains('news__item--no-image-visible') === false) {
+  
+          liElement[i].classList.add('news__item--no-image-visible');
+        }
+      });
+
+     
     }
   });
