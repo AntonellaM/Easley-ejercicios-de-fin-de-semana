@@ -22,3 +22,4 @@ const data = [
     image: 'https://via.placeholder.com/200x100'
   }
 ];
+
