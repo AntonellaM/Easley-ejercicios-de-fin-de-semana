@@ -1,0 +1,43 @@
+body {
+  background: #fffdfa;
+  color: #332100;
+  margin: 0;
+}
+
+.news {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-gap: 20px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 40px;
+  width: 640px;
+}
+
+.news__item {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.news__title {
+  font-size: 16px;
+}
+
+.news__image {
+  display: block;
+  width: 100%;
+}
+
+.news__item--from-mars {
+  border-color: #BC2731;
+  box-shadow: 0 1px 4px rgba(188, 39, 49, 0.6);
+}
+.news__item--from-mars .news__title {
+  color: #BC2731;
+}
+.news__item--from-mars .news__image {
+  box-shadow: 0 0 0 3px rgba(188, 39, 49, 0.8);
+  border-radius: 5px;
+}
