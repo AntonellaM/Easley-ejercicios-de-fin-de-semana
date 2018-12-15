@@ -65,11 +65,29 @@ function createNewsItem (image, title) {
   newListEl.appendChild(newImage);
   return newListEl;
 }
-//recorro los objetos del array para sacar los valores de los objetos. los asigno a lets. esos lets seran los argumentos de createNewsItem, la megafuncion. Apendo esto al ul
+//FUNCION FINAL 1ER EJERCICIO Recorro los objetos del array para sacar los valores de los objetos. los asigno a lets. esos lets seran los argumentos de createNewsItem, la megafuncion. Apendo esto al ul
 for(let i = 0; i < data.length; i++){
   let dataImgSrc = data[i].image;
   let dataAlt = data[i].title;
   const newsItem = createNewsItem( dataImgSrc, dataAlt);
   newsMain.appendChild(newsItem);
 }
+
+// Una vez tenemos nuestra lista de noticias vamos a destacar los resultados "marcianos" aplicando la clase .news__item--from-mars.
+// Aplicaremos esta clase a los <li> cuyo título contenga “Mars” o “Martian”, para ello:
+// Buscaremos todos los elementos con clase .news__item.
+// Recorreremos la lista de elementos almacenando en una variable el contenido del título de cada elemento.
+// Usando el método includes() comprobaremos si contienen “Mars” o “Martian” y aplicaremos al licorrespondiente la clase .news__item--from-mars
+
+
+//saco todos los lis con class news__item y me salen en array
+const newsItemList = document.querySelectorAll('.news__item');
+//recorro ese array con la intencion de buscar dentro de los lis si su interior tiene palabra clave. Por eso creo variable que me lleva hasta dentro del contenido del li *innerText*, y le pongo el indice para seguir el recorrido de todos los interiores de los lis. Ahora, si ese interior incluye la palabra clave, volvemos un paso atras con newsItemList[i], porque ese es el elemento li, y le metemos la clase nueva
+for(let i =0; i < newsItemList.length; i++) {
+  let newsItemTitle = newsItemList[i].innerText;
+  if(newsItemTitle.includes('Mars') || newsItemTitle.includes('Martian') ){
+    newsItemList[i].classList.add('news__item--from-mars');
+  }
+}
+
 
