@@ -1,6 +1,9 @@
 'use strict';
-
-const api = 'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json';
+/**
+ * La única diferencia entre el ejercicio 5 y el 6 es que la url de
+ * la API usa `palettes.json` en lugar de `palette.json`
+ */
+const api = 'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json';
 const remotePalettes = document.querySelector('.palettes');
 
 /**
