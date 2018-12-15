@@ -2,18 +2,32 @@
 
 const newsElement = document.querySelector('.news');
 
-function printNews() {
-    fetch('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/js/main.js')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            for (const newsItem of data) {
-            newsElement.innerHTML = `<li class="news__item">
-            <h2 class="news__title">${data.title}</h2>
-            <img class="news__image" src=${data.image}alt=${data.title}></li>`
-        }
-        });
+const data = [
+  {
+    title: 'Asteroids 101',
+    image: 'https://via.placeholder.com/200x100'
+  },
+  {
+    title: 'Life on Mars',
+    image: 'https://via.placeholder.com/200x100'
+  },
+  {
+    title: 'Martians invade Earth',
+    image: 'https://via.placeholder.com/200x100'
+  },
+  {
+    title: 'Humans aren\'t real',
+    image: 'https://via.placeholder.com/200x100'
+  },
+  {
+    title: 'Space The Final Frontier',
+    image: 'https://via.placeholder.com/200x100'
+  }
+];
 
+for (const newsItem of data) {
+  newsElement.innerHTML +=  `<li class="news__item">
+<h2 class="news__title">${newsItem.title}</h2>
+<img class="news__image" src=${newsItem.image} alt=${newsItem.title}>
+</li>`;
 }
-printNews();
