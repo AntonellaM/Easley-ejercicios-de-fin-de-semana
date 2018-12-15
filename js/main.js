@@ -22,55 +22,70 @@ const data = [{
   }
 ];
 
-const listEl = document.querySelector('.news');
-// console.log (listEl);
+// const listEl = document.querySelector('.news');
+// // console.log (listEl);
 
-function createList() {
-  for (let i = 0; i < data.length; i++) {
-    const dataImages = data[i].image;
-    // console.log (dataImages);
+// function createList() {
+//   for (let i = 0; i < data.length; i++) {
+//     const dataImages = data[i].image;
+//     // console.log (dataImages);
 
-    const dataTitles = data[i].title;
-    // console.log (dataTitles);
-    listEl.innerHTML += `
-    <li class="news__item">
-    <h2 class="news__title">${dataTitles}</h2>
-    <img class="news__image" src=${dataImages} alt=${dataTitles}>
-    </li>`;
-  }
-}
-
-createList();
-
-const itemEl = document.querySelectorAll('.news__item');
-//  console.log (itemEl);
-
-function highlightList() {
-  for (let i = 0; i < itemEl.length; i++) {
-    const itemName = itemEl[i].outerText;
-    // console.log(itemName);
-
-    if (itemName.includes('Martians')||itemName.includes('Mars')){
-      itemEl[i].classList.add('news__item--from-mars');
-    } else {
-      console.log(`${itemName} doesnt include "Mars" nor "Martians"`);
-
-    }
-  }
-}
-
-highlightList();
-
-
-// function highlightList (){
-//   for (let i = 0; i<data.length; i++){
 //     const dataTitles = data[i].title;
 //     // console.log (dataTitles);
+//     listEl.innerHTML += `
+//     <li class="news__item">
+//     <h2 class="news__title">${dataTitles}</h2>
+//     <img class="news__image" src=${dataImages} alt=${dataTitles}>
+//     </li>`;
+//   }
+// }
 
-//     if (dataTitles[i].includes('Mars')){
-//       itemEl.classList.add('news__item--from-mars','news__item--from-mars','news__item--from-mars');
+// createList();
+
+// const itemEl = document.querySelectorAll('.news__item');
+// //  console.log (itemEl);
+
+// function highlightList() {
+//   for (let i = 0; i < itemEl.length; i++) {
+//     const itemName = itemEl[i].outerText;
+//     // console.log(itemName);
+
+//     if (itemName.includes('Martians')||itemName.includes('Mars')){
+//       itemEl[i].classList.add('news__item--from-mars');
 //     } else {
-//       // console.log (`${dataTitles} doesnt include Mars`);
+//       console.log(`${itemName} doesnt include "Mars" nor "Martians"`);
+
 //     }
 //   }
 // }
+
+// highlightList();
+
+const listEl = document.querySelector('.news');
+// console.log (listEl);
+
+function apiNews () {
+  fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json')
+    .then (response => response.json ())
+    .then (data => {
+      // console.log (data);
+      
+      const newsArr = data.news;
+      console.log(newsArr);
+
+      for (let i=0; i<newsArr.length; i++){
+        let newTitle =newsArr[i].title;
+        console.log (newTitle)
+
+        let newImg =newsArr[i].image;
+        console.log (newImg)
+
+        listEl.innerHTML+=`<li class="news__item">${newTitle}+${newImg}</li>`;
+
+      }
+
+    }
+      )
+}
+
+apiNews();
