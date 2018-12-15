@@ -58,7 +58,6 @@ for (let i = 0; i < elements.length; i++ ) {
   arrayTitles.push(title);  
 }
 
-console.log(arrayTitles);
 
 //Usando el método includes() comprobaremos si contienen “Mars” o “Martian” y aplicaremos al li correspondiente la clase .news__item--from-mars
 
@@ -66,7 +65,6 @@ for (let i = 0; i < arrayTitles.length; i++) {
 
   if ( arrayTitles[i].includes('Mars') || arrayTitles[i].includes('Martian') ){
 
-    console.log('lo incluye');
     elements[i].classList.add('news__item--from-mars');
   }
 
