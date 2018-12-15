@@ -37,7 +37,7 @@ function createColorBox(colorList){
     let liBox = createElement('li', 'li-color');
     let divBox = createElement('div', 'div-color');
     liBox.appendChild(divBox);
-    divBox.style.backgroundColor = color;
+    divBox.style.backgroundColor = `#${color}`;
     ulBox.appendChild(liBox);
   }
   return ulBox;
@@ -48,18 +48,27 @@ function createPalette(name, from, colors){
   const newName = appendText('h2', 'title', name);
   const newFrom = appendText('p', 'from', from);
   const newColorBox = createColorBox(colors);
-  console.log(newName, newFrom, newColorBox);
   palettes.appendChild(newName);
   palettes.appendChild(newFrom);
   palettes.appendChild(newColorBox);
 }
 
-createPalette('emma', 'pakito', ['green', 'yellow']);
+//createPalette('emma', 'pakito', ['green', 'yellow']);
 
 
 
-// fetch('https://raw.githubusercontent.com/Adalab/dorcas-repaso-sprint2/master/data/palettes.json')
-//   .then(response => response.json())
-//   .then(function(data){
-
-//   })
+fetch('https://raw.githubusercontent.com/Adalab/dorcas-repaso-sprint2/master/data/palettes.json')
+  .then(response => response.json())
+  .then(function(data){
+    const dataSet = data.palettes;
+    //console.log(dataSet);
+    for(let i = 0; i < dataSet.length; i++){
+      let names = dataSet[i].name;
+      console.log(names);
+      let froms =dataSet[i].from;
+      console.log(froms);
+      let colorsBuckle = dataSet[i].colors;
+      console.log(colorsBuckle);
+      createPalette(names, froms, colorsBuckle);
+    }
+  });
