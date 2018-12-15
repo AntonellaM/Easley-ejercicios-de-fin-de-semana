@@ -32,3 +32,16 @@ for (let i = 0; i < data.length; i++) {
   </li>
 `;
 };
+
+const item = document.querySelectorAll('.news__item');
+console.log(item);
+for(let i = 0; i < item.length; i++) {
+  let newTitle = data[i].title;
+
+  if (newTitle.includes('Martian') || newTitle.includes('Mars')) {
+    console.log(`El título ${data[i].title} contiene la palabra buscada`);
+    item[i].classList.add('news__item--from-mars');
+  } else {
+    console.log(`El título ${data[i].title} no contiene la palabra buscada`);
+  }
+}
