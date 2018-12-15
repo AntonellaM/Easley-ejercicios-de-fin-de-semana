@@ -42,6 +42,24 @@ const writeNews = (arr, el) => {
   el.innerHTML = items;
 };
 
+/**
+ * Creo una función flecha que localice cada noticia (`.news__item`),
+ * busco el título y comrpuebo si contiene 'Mars' o 'Martian'
+ * y si lo tiene le coloco al elemento `.news__item` la clase `news__item--from-mars`.
+ */
+const markMartianNews = () => {
+  const currentNews = news.querySelectorAll('.news__item');
+  for (const c of currentNews) {
+    const title = c.querySelector('.news__title').innerHTML;
+    if (title.includes('Mars') || title.includes('Martian')) {
+      c.classList.add('news__item--from-mars');
+    }
+  }
+};
+
 // Llamo a mi función y le pado el array de noticias y la referencia a mi lista `.news`
 writeNews(data, news);
+
+// Llamo la función que marca las noticias de Marte
+markMartianNews();
 
