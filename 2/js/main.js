@@ -34,15 +34,24 @@ for (let i=0; i<data.length; i++){
 
 //Buscaremos todos los elementos con clase .news__item.
 const li = document.querySelectorAll('.news__item');
-const h2 = document.querySelectorAll('.news__title');
-let titles =[];
+
 // Recorreremos la lista de elementos almacenando en una variable el contenido del título de cada elemento.
+const titles =[];
 for (let i=0; i<li.length; i++){
-  titles.push(li[i].firstChild.innerHTML);
+
+  const title = li[i].firstChild.innerHTML;
+  titles.push(title);
+
+  // Usando el método includes() comprobaremos si contienen “Mars” o “Martian” y aplicaremos al li correspondiente la clase .news__item--from-mars
+  if (title.includes('Mars') || title.includes('Martians')) {
+
+    li[i].classList.add('.news__item--from-mars');
+
+  }
+
 }
 
 
-console.log(titles);
-// Usando el método includes() comprobaremos si contienen “Mars” o “Martian” y aplicaremos al li correspondiente la clase .news__item--from-mars
+
 
 
