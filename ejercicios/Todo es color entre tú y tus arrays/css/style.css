@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: rgb(118, 0, 203);
+}
+.title {
+    margin-top: 40px;
+}
+.color-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 20px;
+}
+.block {
+    width: 70px;
+    height: 70px;
+}
