@@ -44,31 +44,20 @@ list.innerHTML = news;
 //Buscamos todos los elementos con clase .news__item.
 
 const elements = document.querySelectorAll('.news__item');
-
-
-let arrayTitles = []; //Array con los títulos de cada li
-
+let title = '';
+let element ;
 
 //Recorreremos la lista de elementos almacenando en una variable el contenido del título de cada elemento.
 
 for (let i = 0; i < elements.length; i++ ) {
-  let title;
   title = elements[i].firstElementChild.innerHTML; //accedemos al contenido del primer hijo de cada li (el título)
 
-  arrayTitles.push(title);  
-}
+  //Usando el método includes() comprobaremos si contienen “Mars” o “Martian” y aplicaremos al li correspondiente la clase .news__item--from-mars
+  if ( title.includes('Mars') || title.includes('Martian') ){
 
+    element = elements[i];
 
-//Usando el método includes() comprobaremos si contienen “Mars” o “Martian” y aplicaremos al li correspondiente la clase .news__item--from-mars
-
-for (let i = 0; i < arrayTitles.length; i++) {
-
-  if ( arrayTitles[i].includes('Mars') || arrayTitles[i].includes('Martian') ){
-
-    elements[i].classList.add('news__item--from-mars');
+    element.classList.add('news__item--from-mars');
   }
 
 }
-
-
-
