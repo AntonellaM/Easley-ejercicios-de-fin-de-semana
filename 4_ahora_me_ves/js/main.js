@@ -6,10 +6,10 @@ const handleContent = (event) => {
   // console.log(selected);
   // console.log(event);
   if (event.target.tagName === 'LI') {
-    selected.classList.remove('news__item--no-image-visible');
+    selected.classList.toggle('news__item--no-image-visible');
   } else {
     const parent = selected.parentElement;
-    parent.classList.remove('news__item--no-image-visible');
+    parent.classList.toggle('news__item--no-image-visible');
   }
 };
 
