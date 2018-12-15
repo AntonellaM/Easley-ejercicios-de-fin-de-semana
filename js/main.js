@@ -42,6 +42,7 @@ const liElement = document.querySelectorAll('.news__item');
 const liChildren = document.querySelectorAll('.news__title');
 
 
+
 for (let i = 0; i<liElement.length; i++) {
 
   if(liChildren[i].innerHTML.includes('Mars')) {
