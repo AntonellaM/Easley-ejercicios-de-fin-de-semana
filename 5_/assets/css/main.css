@@ -7,9 +7,9 @@ body {
 .content {
   width: 250px;
   height: 150px;
-  padding: 5px 50px;
+  padding: 5px 50px 10px;
   margin: 100px auto;
-  background-color: rgba(168, 166, 166, 0.315);
+  background-color: rgba(194, 189, 189, 0.315);
   border-radius: 10px;
 }
 
