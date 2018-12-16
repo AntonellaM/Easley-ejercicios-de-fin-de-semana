@@ -24,27 +24,27 @@ const data = [
 ];
 
 // Bucle nuevo ES6
-
-//Recorremos el array
 for (const cosis of data) {
-
-  //Obtenemos los títulos y las imágenes y las recogemos en constantes
   const addTitle = cosis.title;
   const addImage = cosis.image;
-
-  //Creamos una lista con titulo e imagen y le añadimos lo recogido en las constantes.
   cosis[data] = `<li class="news__item"> <h2 class="news__title">${addTitle}</h2> <img class="news__image" src="${addImage}" alt="${addTitle}"> </li>`;
 
-  // Pintamos en el ul el contenido añadido en js
   news.innerHTML += cosis[data];
 }
 
-// Bucle anterior a ES6
+function selectMartianMars (){
+  // 1. Buscaremos todos los elementos con clase `.news__item`.
+  const currentNews = news.querySelectorAll('.news__item');
 
-// for (let i = 0; i < data.length; i++) {
-//   const title = data[i].title;
-//   const image = data[i].image;
-//   const addContent = `<li class="news__item"> <h2 class="news__title">${title}</h2> <img class="news__image" src="${image}" alt="${title}"> </li>`;
+  // 2. Recorreremos la lista de elementos almacenando en una variable el contenido del título de cada elemento.
+  for (const item of currentNews) {
+    const title = item.querySelector('.news__title').innerHTML;
 
-//   news.innerHTML += addContent;
-// }
+    // 3. Usando el método `includes()` comprobaremos si contienen “Mars” o “Martian” y aplicaremos al `li`correspondiente la clase `.news__item--from-mars`
+    if (title.includes('Mars') || title.includes('Martian')){
+      item.classList.add('news__item--from-mars');
+    }
+  }
+}
+
+selectMartianMars();
