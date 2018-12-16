@@ -4,29 +4,25 @@ body {
   margin: 0;
 }
 
-.news {
-  display: grid;
-  grid-template-columns: repeat(3, 200px);
-  grid-gap: 20px;
-  list-style: none;
-  margin: 0 auto;
-  padding: 40px;
-  width: 640px;
+.content {
+  width: 250px;
+  height: 150px;
+  padding: 5px 50px;
+  margin: 100px auto;
+  background-color: rgba(168, 166, 166, 0.315);
+  border-radius: 10px;
 }
 
-.news__item {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  background: #fff;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+.content-title {
+  width: 250px;
+}
+.colors-box {
+  width: 60px;
+  height: 60px;
 }
 
-.news__title {
-  font-size: 16px;
+.content-color{
+  display: flex;
+  width: 250px;
+  box-shadow: 5px 3px 12px 0px rgba(0,0,0,0.36);
 }
-
-.news__image {
-  display: block;
-  width: 100%;
-}
-
