@@ -84,24 +84,46 @@
 
 //5
 
-const url = "https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json";
+// const url = "https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json";
 
-let colorsContainer = document.querySelector('.colors');
+// let colorsContainer = document.querySelector('.colors');
 
-fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    let colors = data.palettes[0].colors;
-    for(let i=0;i<colors.length; i++){
-      console.log(colors[i]);
-      colorsContainer.innerHTML += `
-      <div class="color__item" style="background-color:#${colors[i]}"></div>
-      `
-    }
-  });
+// fetch(url)
+//   .then(response => response.json())
+//   .then(data => {
+//     let colors = data.palettes[0].colors;
+//     for(let i=0;i<colors.length; i++){
+//       console.log(colors[i]);
+//       colorsContainer.innerHTML += `
+//       <div class="color__item" style="background-color:#${colors[i]}"></div>
+//       `
+//     }
+//   });
 
 //6
 
+let palettesContainer = document.querySelector('.palettes-container');
 
+const apiPalettes = "https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json";
 
+fetch(apiPalettes)
+  .then(response => response.json())
+  .then(data => {
+    let palettes = data.palettes;
+    for(let i=0;i<palettes.length; i++) {
+      let colors = palettes[i].colors;
 
+      let htmlText = `
+      <div class="palette ${palettes[i].name}">`
+
+      for(let i=0;i< colors.length;i++) {
+        htmlText += `
+          <div class="color__item" style="background-color:#${colors[i]}"></div>`
+      }
+
+      htmlText += `</div>`
+
+      palettesContainer.innerHTML += htmlText;
+
+    }
+  });

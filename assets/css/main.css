@@ -62,4 +62,9 @@ body {
 .color__item {
   height: 100px;
   width: 100px;
+  margin: 20px;
+}
+
+.palettes {
+  display: flex;
 }
