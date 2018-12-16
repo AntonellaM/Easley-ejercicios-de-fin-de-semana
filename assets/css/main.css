@@ -34,10 +34,32 @@ body {
   border-color: #BC2731;
   box-shadow: 0 1px 4px rgba(188, 39, 49, 0.6);
 }
+
 .news__item--from-mars .news__title {
   color: #BC2731;
 }
+
 .news__item--from-mars .news__image {
   box-shadow: 0 0 0 3px rgba(188, 39, 49, 0.8);
   border-radius: 5px;
+}
+
+.news__item--no-image-visible .news__image {
+  display: none;
+}
+
+/* exercise 5 */
+
+.colors {
+  height: 150px;
+  width: 450px;
+  margin: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.color__item {
+  height: 100px;
+  width: 100px;
 }

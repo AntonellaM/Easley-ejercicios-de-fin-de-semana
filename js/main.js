@@ -51,22 +51,56 @@
 
 //3
 
-const containerList = document.querySelector('.news');
+// const containerList = document.querySelector('.news');
 
 
-let urlApi = "https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json";
+// let urlApi = "https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json";
 
-fetch(urlApi)
+// fetch(urlApi)
+//   .then(response => response.json())
+//   .then(data => {
+//     for(let i=0; i<data.news.length; i++){
+//       containerList.innerHTML +=
+//       `<li class="news__item">
+//       <h2 class="news__title">${data.news[i].title}</h2>
+//       <img class="news__image" src="${data.news[i].image}" alt="${data.news[i].title}">
+//       </li>`
+//     }
+
+//     let listItems = containerList.querySelectorAll('.news__item');
+
+//     for(let i=0;i<listItems.length;i++){
+//       listItems[i].addEventListener('click', handle);
+//     }
+
+//   });
+
+// //4
+
+// function handle(e) {
+//   const item = e.currentTarget;
+//   item.classList.toggle('news__item--no-image-visible');
+// }
+
+//5
+
+const url = "https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json";
+
+let colorsContainer = document.querySelector('.colors');
+
+fetch(url)
   .then(response => response.json())
   .then(data => {
-    for(let i=0; i<data.news.length; i++){
-      containerList.innerHTML +=
-      `<li class="news__item">
-      <h2 class="news__title">${data.news[i].title}</h2>
-      <img class="news__image" src="${data.news[i].image}" alt="${data.news[i].title}">
-      </li>`
+    let colors = data.palettes[0].colors;
+    for(let i=0;i<colors.length; i++){
+      console.log(colors[i]);
+      colorsContainer.innerHTML += `
+      <div class="color__item" style="background-color:#${colors[i]}"></div>
+      `
     }
   });
+
+//6
 
 
 
