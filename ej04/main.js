@@ -9,7 +9,6 @@ fetch(url)
     let data = d.news;
     printNews(data);
     resultMarcianos(); 
-
   })
  
 
@@ -21,9 +20,11 @@ function printNews(data) {
 
   const itemList = document.createElement("li"); //new li
   itemList.classList.add("news__item"); // class for li
+  itemList.classList.add("news__item--no-image-visible");
+  itemList.addEventListener("click", handlerShowImg);
 
   const itemTitle = document.createElement("h2"); //create h2
-  itemTitle.classList.add("news__title"); //add class Title
+  itemTitle.classList.add("news__title");  //add class Title
   itemTitle.innerHTML= title;
   itemList.appendChild(itemTitle);
  
@@ -31,15 +32,16 @@ function printNews(data) {
   itemImg.classList.add("news__image"); //add class image
   itemImg.src=img;
   itemImg.alt=title;
+
   itemList.appendChild(itemImg);
 
   listNews.appendChild(itemList);
+ 
   } 
 }
 
 
 function resultMarcianos() {
-
   const allNews = document.querySelectorAll(".news__item");
   for(let i =0; i<allNews.length;i++){
     let titleNews = allNews[i].children[0].innerHTML;
@@ -49,6 +51,14 @@ function resultMarcianos() {
     }
   }
 }
+
+function handlerShowImg(e){
+  const itemClicked = e.currentTarget;
+  itemClicked.classList.toggle("news__item--no-image-visible");
+}
+
+
+
 
 
 
