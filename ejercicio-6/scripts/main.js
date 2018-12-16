@@ -18,7 +18,7 @@ fetch('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-sema
       console.log(palettesColors);
 
 
-      const palettesElements = `<div class="color__item" style="background-color:#${palettesColors[i]}">hola</div>`;
+      const palettesElements = `<div class="color__item" style="background-color:#${palettesColors[i]}">${palettesArray[i].name}</div>`;
 
       console.log(palettesElements);
 

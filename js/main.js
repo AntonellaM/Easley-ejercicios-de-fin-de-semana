@@ -1,4 +1,5 @@
-'use strict';
+// 'use strict';
+// 'use strict';
 
 // const data = [
 //   {
@@ -35,6 +36,7 @@
 
 //   <img src="${images}" alt="${titles}" class="news__image"></li>`;
 // }
+
 
 
 // const liElement = document.querySelectorAll('.news__item');
@@ -99,13 +101,13 @@ fetch('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-sema
 
           console.log(liElement[i]);
 
-  
+
         } else if(liElement[i].classList.contains('news__item--no-image-visible') === false) {
-  
+
           liElement[i].classList.add('news__item--no-image-visible');
         }
       });
 
-     
+
     }
   });
