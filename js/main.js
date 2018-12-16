@@ -48,4 +48,9 @@ for (const object of data){
 
 //Ejercicio 2----------------------------------------
 const newsItemElements = listEl.querySelectorAll('.news__item');
-console.log(newsItemElements);
+for (const newsItemElement of newsItemElements){
+  let titleItemEl = newsItemElement.querySelector('h2').innerHTML;
+  if (titleItemEl.includes('Mars' || 'Martian')){
+    newsItemElement.classList.add('news__item--from-mars');
+  }
+}
