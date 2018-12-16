@@ -1,0 +1,21 @@
+
+.palettes__container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+
+
+}
+
+.color__item {
+  height: 50px;
+  width: 50px;
+
+
+
+}
