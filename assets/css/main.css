@@ -14,9 +14,7 @@ body {
   width: 640px;
 }
 
-.news__item--no-image-visible .news__image {
-  display: none;
-}
+
 
 .news__item {
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -44,6 +42,10 @@ body {
 .news__item--from-mars .news__image {
   box-shadow: 0 0 0 3px rgba(188, 39, 49, 0.8);
   border-radius: 5px;
+}
+
+.news__item--no-image-visible .news__image {
+  display: none;
 }
 
 
