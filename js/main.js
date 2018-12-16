@@ -71,21 +71,55 @@ function apiNews () {
       // console.log (data);
       
       const newsArr = data.news;
-      console.log(newsArr);
+      // console.log(newsArr);
 
       for (let i=0; i<newsArr.length; i++){
         let newTitle =newsArr[i].title;
-        console.log (newTitle)
+        // console.log (newTitle)
 
         let newImg =newsArr[i].image;
-        console.log (newImg)
+        // console.log (newImg)
 
-        listEl.innerHTML+=`<li class="news__item">${newTitle}+${newImg}</li>`;
-
+        listEl.innerHTML+=`
+        <li class="news__item news__item--no-image-visible">
+        <h2 class ="news__title">${newTitle}</h2>
+        <img class="news__image" src=${newImg}>
+        </li>`;
       }
 
-    }
-      )
-}
+      const allListItemsEl = document.querySelectorAll('.news__item'); 
+      // console.log (allListItemsEl);
+      const childNodes=allListItemsEl[0].childNodes;
+      // console.log (childNodes);
+      for (let i=0; i<childNodes.length;i++){
+        const imagenesNews = childNodes[3];
+        console.log(imagenesNews);
+      
+      }
+    })
 
+}
 apiNews();
+
+// newSelected.classList.toggle('news__item--no-image-visible');
+
+        // function appearOrDissapearImage (event){
+        // const itemSelected = event.currentTarget;
+        // console.log (itemSelected);
+        // }
+
+        // appearOrDissapearImage ();
+
+        // function handlerToggle (event){
+
+        //   console.log (event);
+
+        //   const newSelected = event.currentTarget;
+          
+
+        //   console.log (newSelected);
+
+        // }
+
+        // imagenesNews.addEventListener('click', handlerToggle);
+
