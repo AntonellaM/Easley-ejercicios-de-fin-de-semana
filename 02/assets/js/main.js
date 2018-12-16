@@ -57,10 +57,10 @@ const newsEl = document.querySelector('.news');
 
 function paintNews() {
 
-  for (const newsItemData of data) {
+  for (const newsItem of data) {
 
-    // newsItemData
-    const { title, image } = newsItemData;
+    // newsItem
+    const { title, image } = newsItem;
     /* Alternative:
     ** const title = newsItemData.title;
     ** const image = newsItemData.image;

@@ -1,30 +1,5 @@
 'use strict';
 
-// data
-
-const data = [
-  {
-    title: 'Asteroids 101',
-    image: 'https://via.placeholder.com/200x100'
-  },
-  {
-    title: 'Life on Mars',
-    image: 'https://via.placeholder.com/200x100'
-  },
-  {
-    title: 'Martians invade Earth',
-    image: 'https://via.placeholder.com/200x100'
-  },
-  {
-    title: 'Humans aren\'t real',
-    image: 'https://via.placeholder.com/200x100'
-  },
-  {
-    title: 'Space The Final Frontier',
-    image: 'https://via.placeholder.com/200x100'
-  }
-];
-
 // helpers
 
 function addClasses(el, className) {
@@ -39,15 +14,39 @@ const createElement = (tagName, className) => {
   return el;
 }
 
+const isAnyWordInString = (wordsToFind, stringToSearchIn) => {
+  let match = false;
+  for (const word of wordsToFind) {
+    if (stringToSearchIn.includes(word)) {
+      match = true;
+    }
+  }
+  return match;
+}
+
 // global elements
 
 const newsEl = document.querySelector('.news');
 
+// getNews
+
+function getNews() {
+  const newsUrl = 'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json';
+  fetch(newsUrl)
+    .then(res => res.json())
+    .then(paintNews)
+    .then(function () {
+      highlightNews(['Mars', 'Martians'], 'news__item--from-mars')
+    })
+}
+
 // news logic
 
-function paintNews() {
+function paintNews(data) {
 
-  for (const newsItem of data) {
+  const { news } = data;
+
+  for (const newsItem of news) {
 
     // newsItem
     const { title, image } = newsItem;
@@ -78,4 +77,16 @@ function paintNews() {
 
 }
 
-paintNews();
+function highlightNews(keyWords, newClass) {
+  // news
+  const newsItemEls = document.querySelectorAll('.news__item');
+  for (const newsItemEl of newsItemEls) {
+    const titleEl = newsItemEl.querySelector('.news__title');
+    const title = titleEl.innerHTML;
+    if (isAnyWordInString(keyWords, title)) {
+      newsItemEl.classList.add(newClass);
+    }
+  }
+}
+
+getNews();
