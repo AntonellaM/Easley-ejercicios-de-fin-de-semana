@@ -51,7 +51,7 @@ function paintPalette(name, colors) {
   const paletteEl = createElement("li", "palette");
 
   // palette name
-  const paletteNameEl = createElement("h1", "palette__name");
+  const paletteNameEl = createElement("h2", "palette__name");
   const paletteName = document.createTextNode(name);
   paletteNameEl.appendChild(paletteName);
 
