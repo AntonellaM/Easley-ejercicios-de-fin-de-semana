@@ -39,3 +39,9 @@ function paca() {
 }
 
 paca();
+
+function mars(){
+  if(data.title.includes('Mars' || 'Martian')){
+
+  }
+}
