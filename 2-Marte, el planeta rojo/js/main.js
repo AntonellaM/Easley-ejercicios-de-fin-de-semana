@@ -23,12 +23,15 @@ const data = [
   }
 ];
 
-function paca() {
+function paintList() {
   for (let i = 0; i < data.length; i++) {
     const newTitle = document.createElement('h2');
     const newContent = document.createTextNode(`${data[i].title}`);
     const newImg = document.createElement('img');
     const listElement = document.createElement('li');
+    listElement.className = 'news__item';
+    newTitle.className = 'news__title';
+    newImg.className = 'news__image';
     newImg.src = data[i].image;
     newImg.alt = data[i].title;
     newTitle.appendChild(newContent);
@@ -36,6 +39,19 @@ function paca() {
     listElement.appendChild(newImg);
     list.appendChild(listElement);
   }
-}
+};
 
-paca();
+paintList();
+
+function writeMartians(){
+  const selectList = list.querySelectorAll('.news__item');
+  for (const n of selectList){
+    const titleName = n.querySelector('.news__title').innerHTML;
+    if(titleName.includes('Mars') || titleName.includes('Martians')){
+      n.classList.add('news__item--from-mars');
+    }
+  }
+};
+
+writeMartians();
+
