@@ -65,6 +65,13 @@ body {
   margin: 20px;
 }
 
-.palettes {
+.palette {
   display: flex;
 }
+
+.palette__name {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 30px;
+  margin-left: 20px;
+}
+

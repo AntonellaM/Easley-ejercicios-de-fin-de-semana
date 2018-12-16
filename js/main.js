@@ -114,6 +114,7 @@ fetch(apiPalettes)
       let colors = palettes[i].colors;
 
       let htmlText = `
+      <p class="palette__name">${palettes[i].name}</p>
       <div class="palette ${palettes[i].name}">`
 
       for(let i=0;i< colors.length;i++) {
