@@ -1,5 +1,5 @@
 'use strict';
-/******************* EJERCICIO 5 *********************/
+/******************* EJERCICIO 6 *********************/
 
 fetch('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json')
   .then(response => response.json())
