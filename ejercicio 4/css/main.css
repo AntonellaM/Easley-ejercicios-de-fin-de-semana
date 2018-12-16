@@ -29,3 +29,6 @@ body {
   display: block;
   width: 100%;
 }
+.news__item--no-image-visible .news__image {
+  display: none;
+}
