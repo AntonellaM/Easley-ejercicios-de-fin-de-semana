@@ -35,13 +35,51 @@ function paca() {
     listElement.appendChild(newTitle);
     listElement.appendChild(newImg);
     list.appendChild(listElement);
+    //Añadimos las clases a cada elemento
+    listElement.setAttribute('class', 'news__item');
+    newTitle.setAttribute('class', 'news__title');
+    newImg.setAttribute('class', 'news__image');
   }
 }
 
 paca();
 
-function mars(){
-  if(data.title.includes('Mars' || 'Martian')){
+const itemClass = document.querySelectorAll('.news__item');
 
+function mars(){
+  // for (let i = 0; i < titleItem.length; i++){
+  //   marsArray.push(titleItem[i].innerHTML);
+
+  for (const c of itemClass){
+    const title = c.querySelector('.news__title').innerHTML;
+    console.log(title)
+
+    if(title.includes('Mars') || title.includes('Martian')){
+      c.classList.add('news__item--from-mars');
+  }
   }
 }
+
+mars();
+
+
+
+
+
+
+
+
+
+
+
+
+// //Carlos
+// const markMartianNews = () => {
+//   for (const c of currentNews) {
+//     const title = c.querySelector('.news__title').innerHTML;
+//     if (title.includes('Mars') || title.includes('Martian')) {
+//       c.classList.add('news__item--from-mars');
+//     }
+//   }
+//  };
+
