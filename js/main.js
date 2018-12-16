@@ -22,3 +22,13 @@ const data = [
     image: 'https://via.placeholder.com/200x100'
   }
 ];
+console.log("hola");
+
+const list = document.querySelector(".news");
+let listEl = "";
+
+for ( const item of data){
+  listEl += `<li class="news__item"><h2 class="new__title">${item.title}</h2> <img class="news__image" src='${item.image}' alt="${item.title}"></li>`;
+};
+
+list.innerHTML = listEl;
