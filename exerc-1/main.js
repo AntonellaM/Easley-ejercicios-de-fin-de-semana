@@ -23,6 +23,7 @@ const data = [
   }
 ];
 console.log('hola');
+
 const list = document.querySelector(".news");
 
 let listEl = "";
