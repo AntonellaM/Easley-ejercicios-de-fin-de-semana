@@ -5,14 +5,14 @@ fetch('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-sema
   .then(response => response.json())
   .then(data => {
     const colorPalette = data.palettes;
-    console.log(colorPalette);
+    //console.log(colorPalette);
 
     for (let i=0; i < colorPalette.length; i++) {
       //ambas opciones son válidas
       // colors.push(colorPalette[i].colors);
       colors = colorPalette[i].colors
     }
-    console.log('colores guardados dentro del fetch',colors);
+    //console.log('colores guardados dentro del fetch',colors);
 
     addColor(colors);
 
@@ -20,7 +20,7 @@ fetch('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-sema
 
   console.log('colores guardados fuera del fetch',colors);
 
-  /**Función que añade el atributo style a un elemento del html 
+  /**Función que añade el atributo style y un color diferente a cada uno de los div 
    * por parámetro, se le pasa el array de colores: colors
   */
   function addColor (colors) {
