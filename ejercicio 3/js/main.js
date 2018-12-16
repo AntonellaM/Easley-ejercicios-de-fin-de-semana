@@ -4,7 +4,7 @@ const newsList = document.querySelector('.news');
 const api = 'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json';
 
 fetch(api)
-  .then(r => r.json)
+  .then(r => r.json())
   .then(d => {
     const results = d.news;
     for (let i=0; i<results.length; i++) {
