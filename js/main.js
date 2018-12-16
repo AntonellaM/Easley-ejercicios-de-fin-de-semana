@@ -23,7 +23,7 @@ const data = [{
 ];
 
 // //Ejercicio 1 -------------------------------------
- const listEl = document.querySelector('.news');
+let listEl = document.querySelector('.news');
 // let titleObj = '';
 // let imageObj = '';
 
@@ -58,17 +58,27 @@ const data = [{
 fetch('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json')
   .then(response => response.json())
   .then(data => data.news)
-    for (const object of data) {
-      let newsItem = document.createElement('li');
-      newsItem.className = "news__item";
-      let newsTitle = document.createElement('h2');
-      newsTitle.className = "news__title";
-      let newsTitleContent = document.createTextNode(`${object.title}`);
-      newsTitle.appendChild(newsTitleContent);
-      let newsImage = document.createElement('img');
-      newsImage.className = "news__image";
-      newsImage.src = `${object.image}`;
-      newsImage.setAttribute('alt', `${object.title}`);
-      newsItem.append(newsTitle, newsImage);
-      listEl.appendChild(newsItem);
-    }
+for (const object of data) {
+  let newsItem = document.createElement('li');
+  newsItem.className = "news__item, news__item--no-image-visible";
+  let newsTitle = document.createElement('h2');
+  newsTitle.className = "news__title";
+  let newsTitleContent = document.createTextNode(`${object.title}`);
+  newsTitle.appendChild(newsTitleContent);
+  let newsImage = document.createElement('img');
+  newsImage.className = "news__image";
+  newsImage.src = `${object.image}`;
+  newsImage.setAttribute('alt', `${object.title}`);
+  newsItem.append(newsTitle, newsImage);
+  listEl.appendChild(newsItem);
+}
+
+let newsItem = document.querySelectorAll('li');
+for (let i = 0; i < newsItem.length; i++){
+  newsItem[i].addEventListener('click', handleImageDisplay)
+};
+
+function handleImageDisplay(event) {
+  let selectedImage = event.currentTarget;
+  selectedImage.classList.toggle('news__item--no-image-visible');
+};
