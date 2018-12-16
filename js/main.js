@@ -23,6 +23,7 @@ const data = [
   }
 ];
 
+//Ejercicio 1 -------------------------------------
 const listEl = document.querySelector('.news');
 let titleObj = '';
 let imageObj = '';
@@ -43,3 +44,8 @@ for (const object of data){
   newsItem.append(newsTitle,newsImage);
   listEl.appendChild(newsItem);
 }
+
+
+//Ejercicio 2----------------------------------------
+const newsItemElements = listEl.querySelectorAll('.news__item');
+console.log(newsItemElements);
