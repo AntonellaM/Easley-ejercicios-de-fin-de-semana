@@ -31,4 +31,4 @@ for (let i = 0; i < data.length; i++) {
   const imageEl = data[i].image;
   listEl.innerHTML += `<li class="new__item"> <h2 class="new__title">${titleEl}</h2> <img class="new__image" src="${imageEl}" alt= "${titleEl}"></li>`;
 
-}
+
