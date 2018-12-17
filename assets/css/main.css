@@ -47,3 +47,8 @@ body {
 .news__item--no-image-visible .news__image {
   display: none;
 }
+
+.color__item {
+  height: 30px;
+  width: 30px;
+}
