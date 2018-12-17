@@ -29,6 +29,19 @@ const data = [
 for (let i = 0; i < data.length; i++) {
   const titleEl = data[i].title;
   const imageEl = data[i].image;
-  listEl.innerHTML += `<li class="new__item"> <h2 class="new__title">${titleEl}</h2> <img class="new__image" src="${imageEl}" alt= "${titleEl}"></li>`;
+  listEl.innerHTML += `<li class="news__item"> <h2 class="news__title">${titleEl}</h2> <img class="news__image" src="${imageEl}" alt= "${titleEl}"></li>`;
 
+
+}
+
+//EX II
+
+const newListEls = listEl.querySelectorAll('.news__item');
+
+for (const newListEl of newListEls) {
+ const marsTitle = newListEl.querySelector('h2').innerHTML;
+  if (marsTitle.includes('Mars' || 'Martian')) {
+    newListEl.classList.add('news__item--from-mars');
+  }
+}
 
