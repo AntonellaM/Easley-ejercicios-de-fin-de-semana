@@ -48,7 +48,21 @@ body {
   display: none;
 }
 
-.father_div {
+/*.father_div {
+  display: flex;
+  flex-direction: row;
+}*/
+.news {
+  display: flex;
+  flex-direction: column;
+}
+
+.item__film {
+  display: flex;
+  flex-direction: column;
+}
+
+.container_div {
   display: flex;
   flex-direction: row;
 }
