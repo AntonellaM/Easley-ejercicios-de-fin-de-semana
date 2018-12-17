@@ -1,5 +1,11 @@
 'use strict';
 
+//añadir el número del ejercicio
+const title = document.querySelector('.exercise__number');
+title.innerHTML = 'Ejercicio 2';
+
+//recoger las información
+
 const data = [
   {
     title: 'Asteroids 101',
@@ -22,3 +28,31 @@ const data = [
     image: 'https://via.placeholder.com/200x100'
   }
 ];
+
+//crear la lista y pintarla
+
+const ulNews = document.querySelector('.news');
+
+for (const x of data) {
+  ulNews.innerHTML +=
+  `<li class="news__item">
+		<h2 class="news__title">${x.title}</h2>
+		<img class="news__image" src="${x.image}" alt="${x.title}">
+	</li>`;
+
+
+  //crear una constante que recoja todos los elementos
+
+  const newsMars = document.querySelectorAll('.news__item');
+
+  //recorrer todos los elementos y encontrar los que contengan Mars o Martians
+
+  if(x.title.includes("Mars") || x.title.includes("Martians")){
+  //destacar los elementos de la lista que hablen de marcianos añadiendo la clase
+    newsMars.x.classList.add('news__item--from-mars');
+    console.log(x.title + ' incluye Marcianos');
+  }else{
+    console.log(x.title + ' no incluye Marcianos');
+  }g
+}
+
