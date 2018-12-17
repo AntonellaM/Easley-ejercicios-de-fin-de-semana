@@ -48,3 +48,12 @@ body {
   display: none;
 }
 
+.father_div {
+  display: flex;
+  flex-direction: row;
+}
+
+.div__content {
+  height: 100px;
+  width: 100px;
+}
