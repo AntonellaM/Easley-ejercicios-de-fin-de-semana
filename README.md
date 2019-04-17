@@ -11,6 +11,9 @@ Ejercicios de fin de semana
   - [4/ Ahora me ves...](#4-ahora-me-ves)
   - [5/ Todo es color entre tú y tus arrays...](#5-todo-es-color-entre-tú-y-tus-arrays)
   - [6/ Episodio VI: El retorno de las paletas](#6-episodio-vi-el-retorno-de-las-paletas)
+  - [7/ Mis paletas preferidas](#7-mis-paletas-preferidas)
+  - [8/ Buceando entre naves](#8-buceando-entre-naves)
+  - [9/ ¡Caches a mi!](#9-¡caches-a-mi)
 
 <!-- /TOC -->
 
@@ -99,3 +102,16 @@ De esta manera aplicaremos el color a cada cuadrado.
 
 ### 6/ Episodio VI: El retorno de las paletas
 Ahora que sabemos pintar paletas vamos a ver las paletas de las mejores naves de ciencia ficción, en esta URL **`https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json`** tenemos a las mejores: ¡¡¡Píntalas todas!!
+
+### 7/ Mis paletas preferidas
+Una vez las tengas todas pintadas vamos a permitir que la usuaria seleccione sus paletas preferidas. Al hacer clic en cualquiera de ellas tenemos que añadirle alguna clase que la marque como seleccionada. Como hay mucha gente a la que le cuesta decidir dejaremos que marquen como preferidas tantas paletas como quieran.
+
+### 8/ Buceando entre naves
+Ahora vamos a dejar que la usuaria filtre por nombre de nave, para ello tenemos que añadir una caja de búsqueda. Cada vez que se escriba una letra filtraremos. Si la usuaria escribe 'a' solo pintaremos las naves cuyo nombre contengan 'a', si escribe 'ac' as que contengan 'ac'. Y así!
+
+### 9/ ¡Caches a mi!
+Estamos haciendo muchas peticiones al servidor cada vez que alguien visita la web. Y hemos visto que muchas veces es una usuaria que ya la visitó antes. Vamos a cachear la respuesta de nuestro fetch en localStorage.
+La idea es que al cargar la página podamos consultar el LS, si ya están las paletas guardadas las pintamos directamente y nos ahorramos una petición. Sino hacemos nuestro fetch ;)
+
+
+
