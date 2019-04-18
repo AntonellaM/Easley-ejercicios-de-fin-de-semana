@@ -78,3 +78,8 @@ body {
   padding: 0;
   list-style: none;
 }
+
+.favorite {
+  margin-left: 20px;
+  cursor: pointer;
+}

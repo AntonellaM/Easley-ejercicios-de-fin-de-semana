@@ -173,6 +173,7 @@ const paintPalettes = array => {
     header.classList.add('color__header');
     const headerText = document.createTextNode(name);
     header.appendChild(headerText);
+    addIcon(header); // exercise 7
     wrapperPalette.appendChild(header);
 
     const colorList = document.createElement('ul');
@@ -201,3 +202,18 @@ const fetchColorsPalettes = url => {
 };
 
 fetchColorsPalettes(palettesUrl);
+
+// 7/ Mis paletas preferidas
+function addIcon(element) {
+  const icon = document.createElement('i');
+  icon.classList.add('far', 'fa-heart', 'favorite');
+  icon.addEventListener('click', () => {
+    toggleFavorite(icon);
+  });
+  element.appendChild(icon);
+}
+
+function toggleFavorite(element) {
+  element.classList.toggle('far');
+  element.classList.toggle('fas');
+}
