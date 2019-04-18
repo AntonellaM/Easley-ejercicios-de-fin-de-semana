@@ -20,7 +20,7 @@ Ejercicios de fin de semana
 ## Pautas
 1. Clona el repo.
 2. Crea una rama con tu nombre (por ejemplo, carlos-mananas).
-3. Ve haciendo los ejercicios en tu rama, cada uno en su propia carpeta.
+3. Ve haciendo los ejercicios en tu rama, cada uno en su propio commit. Esto es: Hago un ejercicio, hago un commit, siguiente ejercicio.
 4. Recuerda comprobar las URLs de las peticiones en **Postman** antes de comenzar a trabajar.
 5. Disfruta la fruta.
 
