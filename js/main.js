@@ -5,6 +5,13 @@ const colorsContainer = document.querySelector('.list__colors-container');
 const palettesContainer = document.querySelector('.palettes__container');
 const input = document.querySelector('#search__input');
 
+const newsUrl =
+  'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json';
+const palettesUrl =
+  'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json';
+const colorsUrl =
+  'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json';
+
 const data = [
   {
     title: 'Asteroids 101',
@@ -68,8 +75,6 @@ checkMars();
 
 // 3/ En el espacio nadie puede oir tus fetchs
 
-const newsUrl =
-  'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json';
 const getNews = url => {
   fetch(url)
     .then(response => response.json())
@@ -146,8 +151,6 @@ const paintPalette = (colors, textHeader) => {
   }
 };
 
-const colorsUrl =
-  'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json';
 const fetchColors = url => {
   fetch(url)
     .then(response => response.json())
@@ -191,15 +194,21 @@ const paintPalettes = array => {
   }
 };
 
-const palettesUrl =
-  'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json';
 const fetchColorsPalettes = url => {
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const { palettes } = data;
-      paintPalettes(palettes);
-    });
+  const storageData = getFromStorage('palettes'); // exercise 9
+  if (!storageData) {
+    // exercise 9
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const { palettes } = data;
+        saveInStorage('palettes', palettes); // exercise 9
+        paintPalettes(palettes);
+      });
+  } else {
+    // exercise 9
+    paintPalettes(storageData);
+  }
 };
 
 fetchColorsPalettes(palettesUrl);
@@ -240,3 +249,13 @@ const searchPalette = event => {
 };
 
 input.addEventListener('keyup', searchPalette);
+
+// 9/ ¡Caches a mi!
+
+function saveInStorage(name, array) {
+  localStorage.setItem(name, JSON.stringify(array));
+}
+
+function getFromStorage(name) {
+  return JSON.parse(localStorage.getItem(name));
+}
