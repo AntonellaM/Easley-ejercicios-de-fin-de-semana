@@ -47,5 +47,20 @@ const paintNews = array => {
     news.appendChild(listItem);
   }
 };
-
 paintNews(data);
+
+// 2/ Marte, el planeta rojo
+
+const checkMars = () => {
+  const listNews = document.querySelectorAll('.news__item');
+  for (const item of listNews) {
+    const title = item.querySelector('.news__title').innerHTML;
+    if (title.includes('Mars') || title.includes('Martian')) {
+      item.classList.add('news__item--from-mars');
+    }
+  }
+};
+
+checkMars();
+
+// 3/ En el espacio nadie puede oir tus fetchs
