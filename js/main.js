@@ -31,6 +31,11 @@ function hiddenImages(event) {
   event.currentTarget.classList.toggle('news__item--no-image-visible');  
 }
 
+function paletteClickHandler(event) {
+  console.log('listener works');
+  event.currentTarget.classList.toggle('favorite-palette');
+}
+
 function getItemsFromURL (data) {
   for (const newsItem of data) {
 
@@ -72,7 +77,7 @@ function getItemsFromURL (data) {
 }
 
 function paintColors(palettes) {
-  console.log(palettes); 
+
   for (const palette of palettes) {
     const divPaletteContainer = document.createElement('div');
     const nameEl = document.createElement('h3');
@@ -81,6 +86,7 @@ function paintColors(palettes) {
     divPaletteContainer.appendChild(nameEl);
     const divColorContainerEl = document.createElement('div');
     divPaletteContainer.appendChild(divColorContainerEl);
+    divPaletteContainer.addEventListener('click', paletteClickHandler);
 
     for (const color of palette.colors) {
       console.log(color)

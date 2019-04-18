@@ -59,3 +59,8 @@ body {
   height: 200px;
   width: 200px;
 }
+
+.favorite-palette {
+  border: 1px solid green;
+  background-color: lightgreen;
+}
