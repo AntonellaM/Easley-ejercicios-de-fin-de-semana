@@ -1,6 +1,7 @@
 'use strict';
 
 const news = document.querySelector('.news');
+const colorsArr = document.querySelector('.colors');
 
 const data = [
   {
@@ -89,7 +90,7 @@ const paintNewsWithoutImage = array => {
     const { title, image } = item;
     const listItem = document.createElement('li');
     listItem.classList.add('news__item');
-    listItem.classList.add('news__item--no-image-visible'); // exercise 4
+    listItem.classList.add('news__item--no-image-visible');
 
     const listTitle = document.createElement('h2');
     listTitle.classList.add('news__title');
@@ -122,3 +123,28 @@ const getNewsWithoutImage = url => {
 };
 
 getNewsWithoutImage(newsUrl);
+
+// 5/ Todo es color entre tú y tus arrays...
+const paintPalette = colors => {
+  for (const color of colors) {
+    const listColor = document.createElement('li');
+    listColor.classList.add('color__item');
+    listColor.setAttribute('style', `background-color:#${color}`);
+    colorsArr.appendChild(listColor);
+  }
+};
+
+const colorsUrl =
+  'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json';
+const fetchColors = url => {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const {
+        palettes: [{ colors }],
+      } = data;
+      paintPalette(colors);
+    });
+};
+
+fetchColors(colorsUrl);
