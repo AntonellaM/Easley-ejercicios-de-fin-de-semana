@@ -26,19 +26,35 @@ const data = [
 const ulEl = document.querySelector('.news');
 
 for (const newsItem of data) {
+
   const liEl = document.createElement('li');
   const titleEl = document.createElement('h2');
   const imgEl = document.createElement('img');
   const text = document.createTextNode(newsItem.title);
 
-  liEl.classList.add('news__item');
-  titleEl.classList.add('news__title');
-  imgEl.classList.add('news__image')
-  imgEl.src = newsItem.image;
-  imgEl.alt = newsItem.title;
+  if (newsItem.title.includes('Mars') || newsItem.title.includes('Martian')) {
+
+    liEl.classList.add('news__item');
+    liEl.classList.add('news__item--from-mars');
+    titleEl.classList.add('news__title');
+    imgEl.classList.add('news__image');
+    imgEl.src = newsItem.image;
+    imgEl.alt = newsItem.title;
+
+  } else {
+
+    liEl.classList.add('news__item');
+    liEl.classList.add('news__item');
+    titleEl.classList.add('news__title');
+    imgEl.classList.add('news__image');
+    imgEl.src = newsItem.image;
+    imgEl.alt = newsItem.title;
+
+  }
 
   titleEl.appendChild(text);
   liEl.appendChild(titleEl);
   liEl.appendChild(imgEl);
   ulEl.appendChild(liEl);
+  
 }

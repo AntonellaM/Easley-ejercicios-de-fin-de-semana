@@ -30,3 +30,6 @@ body {
   width: 100%;
 }
 
+.news__item--from-mars{
+  border: 1px dotted red;
+}
