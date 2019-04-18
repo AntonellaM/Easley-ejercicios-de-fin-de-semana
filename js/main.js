@@ -25,6 +25,10 @@
 
 const ulEl = document.querySelector('.news');
 
+function hiddenImages(event) {
+  event.currentTarget.classList.toggle('news__item--no-image-visible');  
+}
+
 function getItemsFromURL (data) {
   for (const newsItem of data) {
 
@@ -37,6 +41,7 @@ function getItemsFromURL (data) {
 
       liEl.classList.add('news__item');
       liEl.classList.add('news__item--from-mars');
+      liEl.classList.add('news__item--no-image-visible');
       titleEl.classList.add('news__title');
       imgEl.classList.add('news__image');
       imgEl.src = newsItem.image;
@@ -45,7 +50,7 @@ function getItemsFromURL (data) {
     } else {
 
       liEl.classList.add('news__item');
-      liEl.classList.add('news__item');
+      liEl.classList.add('news__item--no-image-visible');
       titleEl.classList.add('news__title');
       imgEl.classList.add('news__image');
       imgEl.src = newsItem.image;
@@ -57,8 +62,11 @@ function getItemsFromURL (data) {
     liEl.appendChild(titleEl);
     liEl.appendChild(imgEl);
     ulEl.appendChild(liEl);
+
+    liEl.addEventListener('click', hiddenImages);
     
   }
+
 }
 
 fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json')
