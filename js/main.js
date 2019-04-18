@@ -1,8 +1,9 @@
 'use strict';
 
 const news = document.querySelector('.news');
-const colorsContainer = document.querySelector('.colors__container');
+const colorsContainer = document.querySelector('.list__colors-container');
 const palettesContainer = document.querySelector('.palettes__container');
+const input = document.querySelector('#search__input');
 
 const data = [
   {
@@ -217,3 +218,25 @@ function toggleFavorite(element) {
   element.classList.toggle('far');
   element.classList.toggle('fas');
 }
+
+// 8/ Buceando entre naves
+
+const searchPalette = event => {
+  const listPalettes = document.querySelectorAll('.colors__container');
+
+  const {
+    currentTarget: { value },
+  } = event;
+  for (const item of listPalettes) {
+    const title = item.querySelector('.color__header');
+    const titleText = title.childNodes[0].nodeValue; // get only text not child <i>
+
+    if (titleText.includes(value)) {
+      title.parentElement.classList.remove('hidden');
+    } else {
+      title.parentElement.classList.add('hidden');
+    }
+  }
+};
+
+input.addEventListener('keyup', searchPalette);

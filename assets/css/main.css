@@ -83,3 +83,22 @@ body {
   margin-left: 20px;
   cursor: pointer;
 }
+
+.hidden {
+  display: none;
+}
+
+/* form */
+
+.search__form {
+  margin: 40px 0;
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#search__input {
+  padding: 5px 10px;
+  margin: 20px;
+}
