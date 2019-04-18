@@ -24,7 +24,8 @@
 // ];
 
 const ulEl = document.querySelector('.news');
-const paletteEl = document.querySelector('.color__container');
+const palettesSectionEl = document.querySelector('.palettes');
+console.log(palettesSectionEl);
 
 function hiddenImages(event) {
   event.currentTarget.classList.toggle('news__item--no-image-visible');  
@@ -70,15 +71,29 @@ function getItemsFromURL (data) {
 
 }
 
-function paintColors(colors) {
-  console.log(colors);
-  for (const color of colors) {
-    const divEl = document.createElement('div');
-    divEl.classList.add('color__square');
-    divEl.setAttribute(`style`, `background-color: #${color};`);
-    paletteEl.appendChild(divEl);
+function paintColors(palettes) {
+  console.log(palettes); 
+  for (const palette of palettes) {
+    const divPaletteContainer = document.createElement('div');
+    const nameEl = document.createElement('h3');
+    const paletteTitle = document.createTextNode(palette.name);
+    nameEl.appendChild(paletteTitle);
+    divPaletteContainer.appendChild(nameEl);
+    const divColorContainerEl = document.createElement('div');
+    divPaletteContainer.appendChild(divColorContainerEl);
+
+    for (const color of palette.colors) {
+      console.log(color)
+      const divColorEl = document.createElement('div');
+      divColorEl.classList.add('color__square');
+      divColorEl.setAttribute(`style`, `background-color: #${color};`);
+      divColorContainerEl.appendChild(divColorEl);
+      divColorContainerEl.classList.add('color__container');
+    }
+
+    palettesSectionEl.appendChild(divPaletteContainer);
   }
-}
+} 
 
 fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json')
   .then(response => response.json())
@@ -86,4 +101,8 @@ fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-sem
 
 fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json')
   .then(response => response.json())
-  .then(data => paintColors(data.palettes[0].colors));
+  .then(data => paintColors(data.palettes));
+
+fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json')
+.then(response => response.json())
+.then(data => paintColors(data.palettes));
