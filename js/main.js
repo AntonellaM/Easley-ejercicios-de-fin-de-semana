@@ -36,19 +36,23 @@ const data = [
 ];
 
 // 1/ Listado de noticias
+
+const createElement = (element, classElement) => {
+  const item = document.createElement(element);
+  item.classList.add(classElement);
+  return item;
+};
+
 const paintNews = array => {
   for (const item of array) {
     const { title, image } = item;
-    const listItem = document.createElement('li');
-    listItem.classList.add('news__item');
+    const listItem = createElement('li', 'news__item');
 
-    const listTitle = document.createElement('h2');
-    listTitle.classList.add('news__title');
+    const listTitle = createElement('h2', 'news__title');
     const titleText = document.createTextNode(title);
     listTitle.appendChild(titleText);
 
-    const listImage = document.createElement('img');
-    listImage.classList.add('news__image');
+    const listImage = createElement('img', 'news__image');
     listImage.setAttribute('src', image);
     listImage.setAttribute('alt', title);
 
@@ -71,7 +75,7 @@ const checkMars = () => {
   }
 };
 
-checkMars();
+// checkMars();
 
 // 3/ En el espacio nadie puede oir tus fetchs
 
@@ -95,17 +99,14 @@ const toggleImage = (element, classToToggle) => {
 const paintNewsWithoutImage = array => {
   for (const item of array) {
     const { title, image } = item;
-    const listItem = document.createElement('li');
-    listItem.classList.add('news__item');
+    const listItem = createElement('li', 'news__item');
     listItem.classList.add('news__item--no-image-visible');
 
-    const listTitle = document.createElement('h2');
-    listTitle.classList.add('news__title');
+    const listTitle = createElement('h2', 'news__title');
     const titleText = document.createTextNode(title);
     listTitle.appendChild(titleText);
 
-    const listImage = document.createElement('img');
-    listImage.classList.add('news__image');
+    const listImage = createElement('img', 'news__image');
     listImage.setAttribute('src', image);
     listImage.setAttribute('alt', title);
 
@@ -133,19 +134,16 @@ getNewsWithoutImage(newsUrl);
 
 // 5/ Todo es color entre tú y tus arrays...
 const paintPalette = (colors, textHeader) => {
-  const header = document.createElement('h2');
-  header.classList.add('color__header');
+  const header = createElement('h2', 'color__header');
   const headerText = document.createTextNode(textHeader);
   header.appendChild(headerText);
   colorsContainer.appendChild(header);
 
-  const colorList = document.createElement('ul');
-  colorList.classList.add('colors');
+  const colorList = createElement('ul', 'colors');
   colorsContainer.appendChild(colorList);
 
   for (const color of colors) {
-    const listColor = document.createElement('li');
-    listColor.classList.add('color__item');
+    const listColor = createElement('li', 'color__item');
     listColor.setAttribute('style', `background-color:#${color}`);
     colorList.appendChild(listColor);
   }
@@ -170,22 +168,18 @@ const paintPalettes = array => {
   for (const palette of array) {
     const { colors, name } = palette;
 
-    const wrapperPalette = document.createElement('li');
-    wrapperPalette.classList.add('colors__container');
-
-    const header = document.createElement('h2');
-    header.classList.add('color__header');
+    const wrapperPalette = createElement('li', 'colors__container');
+    const header = createElement('h2', 'color__header');
     const headerText = document.createTextNode(name);
     header.appendChild(headerText);
-    addIcon(header); // exercise 7
+    addIcon(header); // add only for exercise 7
     wrapperPalette.appendChild(header);
 
-    const colorList = document.createElement('ul');
-    colorList.classList.add('colors');
+    const colorList = createElement('ul', 'colors');
+
     // create pallete
     for (const color of colors) {
-      const listColor = document.createElement('li');
-      listColor.classList.add('color__item');
+      const listColor = createElement('li', 'color__item');
       listColor.setAttribute('style', `background-color:#${color}`);
       colorList.appendChild(listColor);
     }
@@ -195,18 +189,16 @@ const paintPalettes = array => {
 };
 
 const fetchColorsPalettes = url => {
-  const storageData = getFromStorage('palettes'); // exercise 9
+  const storageData = getFromStorage('palettes'); // add only for exercise 9
   if (!storageData) {
-    // exercise 9
     fetch(url)
       .then(response => response.json())
       .then(data => {
         const { palettes } = data;
-        saveInStorage('palettes', palettes); // exercise 9
+        saveInStorage('palettes', palettes); //  add only for exercise 9
         paintPalettes(palettes);
       });
   } else {
-    // exercise 9
     paintPalettes(storageData);
   }
 };
@@ -214,6 +206,7 @@ const fetchColorsPalettes = url => {
 fetchColorsPalettes(palettesUrl);
 
 // 7/ Mis paletas preferidas
+
 function addIcon(element) {
   const icon = document.createElement('i');
   icon.classList.add('far', 'fa-heart', 'favorite');
@@ -238,7 +231,7 @@ const searchPalette = event => {
   } = event;
   for (const item of listPalettes) {
     const title = item.querySelector('.color__header');
-    const titleText = title.childNodes[0].nodeValue; // get only text not child <i>
+    const titleText = title.childNodes[0].nodeValue; // get only text, not child element <i></i>
 
     if (titleText.includes(value)) {
       title.parentElement.classList.remove('hidden');
