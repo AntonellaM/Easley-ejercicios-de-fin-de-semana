@@ -47,7 +47,7 @@ const paintNews = array => {
     news.appendChild(listItem);
   }
 };
-paintNews(data);
+// paintNews(data);
 
 // 2/ Marte, el planeta rojo
 
@@ -64,3 +64,17 @@ const checkMars = () => {
 checkMars();
 
 // 3/ En el espacio nadie puede oir tus fetchs
+
+const newsUrl =
+  'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json';
+const getNews = url => {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const { news } = data;
+      paintNews(news);
+      checkMars();
+    });
+};
+
+getNews(newsUrl);
