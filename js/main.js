@@ -24,6 +24,7 @@
 // ];
 
 const ulEl = document.querySelector('.news');
+const paletteEl = document.querySelector('.color__container');
 
 function hiddenImages(event) {
   event.currentTarget.classList.toggle('news__item--no-image-visible');  
@@ -69,6 +70,20 @@ function getItemsFromURL (data) {
 
 }
 
+function paintColors(colors) {
+  console.log(colors);
+  for (const color of colors) {
+    const divEl = document.createElement('div');
+    divEl.classList.add('color__square');
+    divEl.setAttribute(`style`, `background-color: #${color};`);
+    paletteEl.appendChild(divEl);
+  }
+}
+
 fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json')
   .then(response => response.json())
   .then(data => getItemsFromURL(data.news));
+
+fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json')
+  .then(response => response.json())
+  .then(data => paintColors(data.palettes[0].colors));
