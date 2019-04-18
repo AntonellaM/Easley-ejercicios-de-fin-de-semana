@@ -25,14 +25,13 @@
 
 const ulEl = document.querySelector('.news');
 const palettesSectionEl = document.querySelector('.palettes');
-console.log(palettesSectionEl);
+const searchInputEl = document.querySelector('.search__input');
 
 function hiddenImages(event) {
   event.currentTarget.classList.toggle('news__item--no-image-visible');  
 }
 
 function paletteClickHandler(event) {
-  console.log('listener works');
   event.currentTarget.classList.toggle('favorite-palette');
 }
 
@@ -71,9 +70,7 @@ function getItemsFromURL (data) {
     ulEl.appendChild(liEl);
 
     liEl.addEventListener('click', hiddenImages);
-    
   }
-
 }
 
 function paintColors(palettes) {
@@ -83,13 +80,13 @@ function paintColors(palettes) {
     const nameEl = document.createElement('h3');
     const paletteTitle = document.createTextNode(palette.name);
     nameEl.appendChild(paletteTitle);
+    nameEl.classList.add('palette__title');
     divPaletteContainer.appendChild(nameEl);
     const divColorContainerEl = document.createElement('div');
     divPaletteContainer.appendChild(divColorContainerEl);
     divPaletteContainer.addEventListener('click', paletteClickHandler);
 
     for (const color of palette.colors) {
-      console.log(color)
       const divColorEl = document.createElement('div');
       divColorEl.classList.add('color__square');
       divColorEl.setAttribute(`style`, `background-color: #${color};`);
@@ -101,6 +98,19 @@ function paintColors(palettes) {
   }
 } 
 
+function searchKeyUpHandler(event) {
+  const nameEl = document.querySelectorAll('.palette__title');
+  const search = event.currentTarget.value.toLowerCase();
+  for (const name of nameEl) {
+    const nameContent = name.innerHTML.toLowerCase();
+    if (nameContent.includes(search)) {
+      name.parentElement.classList.remove('search-no-display');
+    } else {
+      name.parentElement.classList.add('search-no-display');
+    }
+  }
+}
+
 fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json')
   .then(response => response.json())
   .then(data => getItemsFromURL(data.news));
@@ -110,5 +120,7 @@ fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-sem
   .then(data => paintColors(data.palettes));
 
 fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json')
-.then(response => response.json())
-.then(data => paintColors(data.palettes));
+  .then(response => response.json())
+  .then(data => paintColors(data.palettes));
+
+searchInputEl.addEventListener('keyup', searchKeyUpHandler);

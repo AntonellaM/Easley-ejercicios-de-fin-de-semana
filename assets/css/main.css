@@ -64,3 +64,7 @@ body {
   border: 1px solid green;
   background-color: lightgreen;
 }
+
+.search-no-display {
+  display: none;
+}
