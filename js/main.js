@@ -1,7 +1,8 @@
 'use strict';
 
 const news = document.querySelector('.news');
-const colorsArr = document.querySelector('.colors');
+const colorsContainer = document.querySelector('.colors__container');
+const palettesContainer = document.querySelector('.palettes__container');
 
 const data = [
   {
@@ -125,12 +126,22 @@ const getNewsWithoutImage = url => {
 getNewsWithoutImage(newsUrl);
 
 // 5/ Todo es color entre tú y tus arrays...
-const paintPalette = colors => {
+const paintPalette = (colors, textHeader) => {
+  const header = document.createElement('h2');
+  header.classList.add('color__header');
+  const headerText = document.createTextNode(textHeader);
+  header.appendChild(headerText);
+  colorsContainer.appendChild(header);
+
+  const colorList = document.createElement('ul');
+  colorList.classList.add('colors');
+  colorsContainer.appendChild(colorList);
+
   for (const color of colors) {
     const listColor = document.createElement('li');
     listColor.classList.add('color__item');
     listColor.setAttribute('style', `background-color:#${color}`);
-    colorsArr.appendChild(listColor);
+    colorList.appendChild(listColor);
   }
 };
 
@@ -141,10 +152,52 @@ const fetchColors = url => {
     .then(response => response.json())
     .then(data => {
       const {
-        palettes: [{ colors }],
+        palettes: [{ colors, name }],
       } = data;
-      paintPalette(colors);
+      paintPalette(colors, name);
     });
 };
 
 fetchColors(colorsUrl);
+
+// 6/ Episodio VI: El retorno de las paletas
+
+const paintPalettes = array => {
+  for (const palette of array) {
+    const { colors, name } = palette;
+
+    const wrapperPalette = document.createElement('li');
+    wrapperPalette.classList.add('colors__container');
+
+    const header = document.createElement('h2');
+    header.classList.add('color__header');
+    const headerText = document.createTextNode(name);
+    header.appendChild(headerText);
+    wrapperPalette.appendChild(header);
+
+    const colorList = document.createElement('ul');
+    colorList.classList.add('colors');
+    // create pallete
+    for (const color of colors) {
+      const listColor = document.createElement('li');
+      listColor.classList.add('color__item');
+      listColor.setAttribute('style', `background-color:#${color}`);
+      colorList.appendChild(listColor);
+    }
+    wrapperPalette.appendChild(colorList);
+    palettesContainer.appendChild(wrapperPalette);
+  }
+};
+
+const palettesUrl =
+  'https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json';
+const fetchColorsPalettes = url => {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const { palettes } = data;
+      paintPalettes(palettes);
+    });
+};
+
+fetchColorsPalettes(palettesUrl);

@@ -68,3 +68,13 @@ body {
   width: 100px;
   height: 100px;
 }
+
+.color__header {
+  font-style: italic;
+}
+
+.palettes__container {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
