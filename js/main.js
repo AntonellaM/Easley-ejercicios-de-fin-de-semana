@@ -77,4 +77,48 @@ const getNews = url => {
     });
 };
 
-getNews(newsUrl);
+// getNews(newsUrl);
+
+// 4/ Ahora me ves...
+const toggleImage = (element, classToToggle) => {
+  element.classList.toggle(classToToggle);
+};
+
+const paintNewsWithoutImage = array => {
+  for (const item of array) {
+    const { title, image } = item;
+    const listItem = document.createElement('li');
+    listItem.classList.add('news__item');
+    listItem.classList.add('news__item--no-image-visible'); // exercise 4
+
+    const listTitle = document.createElement('h2');
+    listTitle.classList.add('news__title');
+    const titleText = document.createTextNode(title);
+    listTitle.appendChild(titleText);
+
+    const listImage = document.createElement('img');
+    listImage.classList.add('news__image');
+    listImage.setAttribute('src', image);
+    listImage.setAttribute('alt', title);
+
+    listItem.appendChild(listTitle);
+    listItem.appendChild(listImage);
+    // add event listenet to li
+    listItem.addEventListener('click', () => {
+      toggleImage(listItem, 'news__item--no-image-visible');
+    });
+    news.appendChild(listItem);
+  }
+};
+
+const getNewsWithoutImage = url => {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const { news } = data;
+      paintNewsWithoutImage(news);
+      checkMars();
+    });
+};
+
+getNewsWithoutImage(newsUrl);
