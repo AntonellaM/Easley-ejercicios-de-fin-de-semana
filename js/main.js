@@ -26,6 +26,9 @@
 const ulEl = document.querySelector('.news');
 const palettesSectionEl = document.querySelector('.palettes');
 const searchInputEl = document.querySelector('.search__input');
+const newsLocalStorage = 'newsCache';
+const singlePaletteStorage = 'singlePaletteCache';
+const multiplePalettesStorage = 'multiplePaletteCache';
 
 function hiddenImages(event) {
   event.currentTarget.classList.toggle('news__item--no-image-visible');  
@@ -113,14 +116,39 @@ function searchKeyUpHandler(event) {
 
 fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/news.json')
   .then(response => response.json())
-  .then(data => getItemsFromURL(data.news));
+  .then(function (data) {
+    if (localStorage.getItem(newsLocalStorage)) {
+      const newsFromCache = JSON.parse(localStorage.getItem(newsLocalStorage));
+      getItemsFromURL(newsFromCache.news);
+    } else {
+      localStorage.setItem(newsLocalStorage, JSON.stringify(data));
+      getItemsFromURL(data.news);
+    }});
 
 fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palette.json')
   .then(response => response.json())
-  .then(data => paintColors(data.palettes));
+  .then(function (data) {
+    if (localStorage.getItem(singlePaletteStorage)) {
+      const singlePaletteFromCache = JSON.parse(localStorage.getItem(singlePaletteStorage));
+      paintColors(singlePaletteFromCache.palettes);
+    } else {
+      localStorage.setItem(singlePaletteStorage, JSON.stringify(data));
+      paintColors(data.palettes);
+    }
+  });
 
 fetch ('https://raw.githubusercontent.com/Adalab/Easley-ejercicios-de-fin-de-semana/master/data/palettes.json')
   .then(response => response.json())
-  .then(data => paintColors(data.palettes));
+  .then(function (data) {
+    console.log(data);
+    if (localStorage.getItem(multiplePalettesStorage)) {
+      const multiplePalettesFromCache = JSON.parse(localStorage.getItem(multiplePalettesStorage));
+      console.log(multiplePalettesFromCache);
+      paintColors(multiplePalettesFromCache.palettes);
+    } else {
+      localStorage.setItem(multiplePalettesStorage, JSON.stringify(data));
+      paintColors(data.palettes);
+    }
+  });
 
 searchInputEl.addEventListener('keyup', searchKeyUpHandler);
